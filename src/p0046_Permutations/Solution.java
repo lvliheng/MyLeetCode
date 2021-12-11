@@ -17,17 +17,17 @@ public class Solution {
 		result.add(new ArrayList<>());
 		
 		for(int i = 0; i < nums.length; i++) {
-			List<List<Integer>> newResult = new ArrayList<>();
+			List<List<Integer>> current = new ArrayList<>();
 			
 			for(int j = 0; j <= i; j++) {
 				for(List<Integer> item : result) {
-					List<Integer> newItem = new ArrayList<>(item);
-					newItem.add(j, nums[i]);
-					newResult.add(newItem);
+					List<Integer> temp = new ArrayList<>(item);
+					temp.add(j, nums[i]);
+					current.add(temp);
 				}
 			}
 			
-			result = newResult;
+			result = current;
 		}
 		
 		return result;
