@@ -19,30 +19,26 @@ public class Solution {
 		int left = 0, top = 0, right = n, bottom = m;
 		
         
-        while(left <= right && top <= bottom) {
+        while(true) {
         	for(int i = left; i <= right; i++) {
     			result.add(matrix[top][i]);
     		}
-    		top++;
+    		if(++top > bottom) break;
     		
-    		if(top > bottom) break;
-    		
-    		for(int j = top; j < bottom; j++) {
+    		for(int j = top; j <= bottom; j++) {
     			result.add(matrix[j][right]);
     		}
+    		if(left > --right) break;
     		
     		for(int p = right; p >= left; p--) {
     			result.add(matrix[bottom][p]);
     		}
-    		right--;
-    		bottom--;
-    		
-    		if(left > right || top > bottom) break;
+    		if(top > --bottom) break;
     		
     		for(int q = bottom; q >= top; q--) {
     			result.add(matrix[q][left]);
     		}
-    		left++;
+    		if(++left > right) break;
         }
 		
 		return result;
