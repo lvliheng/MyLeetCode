@@ -18,7 +18,6 @@ public class Solution {
 		int m = matrix.length - 1, n = matrix[0].length - 1;
 		int left = 0, top = 0, right = n, bottom = m;
 		
-        
         while(true) {
         	for(int i = left; i <= right; i++) {
     			result.add(matrix[top][i]);
