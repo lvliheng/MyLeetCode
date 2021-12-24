@@ -19,9 +19,9 @@ public class Solution {
         	result[0][j] = 1;
         }
         
-        for(int p = 1; p < m; p++) {
-        	for(int q = 1; q < n; q++) {
-        		result[p][q] = result[p - 1][q] + result[p][q - 1];
+        for(int i = 1; i < m; i++) {
+        	for(int j = 1; j < n; j++) {
+        		result[i][j] = result[i - 1][j] + result[i][j - 1];
         	}
         }
 		
