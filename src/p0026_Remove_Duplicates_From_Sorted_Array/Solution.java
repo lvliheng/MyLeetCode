@@ -1,4 +1,4 @@
-package p0026_Remove_Duplicates_From_Sorted_Array;
+package p0026_Remove_Duplicates_from_Sorted_Array;
 
 
 

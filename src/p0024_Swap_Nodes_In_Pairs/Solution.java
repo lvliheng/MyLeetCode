@@ -1,4 +1,4 @@
-package p0024_Swap_Nodes_In_Pairs;
+package p0024_Swap_Nodes_in_Pairs;
 
 public class Solution {
 

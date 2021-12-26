@@ -1,4 +1,4 @@
-package p0017_Letter_Combinations_Of_A_Phone_Number;
+package p0017_Letter_Combinations_of_a_Phone_Number;
 
 import java.util.ArrayList;
 import java.util.List;

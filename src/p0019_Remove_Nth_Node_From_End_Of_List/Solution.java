@@ -1,4 +1,4 @@
-package p0019_Remove_Nth_Node_From_End_Of_List;
+package p0019_Remove_Nth_Node_From_End_of_List;
 
 public class Solution {
 
