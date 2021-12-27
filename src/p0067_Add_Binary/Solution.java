@@ -4,13 +4,9 @@ public class Solution {
 
 	public static void main(String[] args) {
 		
-		System.out.println("100 --> " + addBinary("11", "1"));
-		System.out.println("10101 --> " + addBinary("1010", "1011"));
-		System.out.println("1000 --> " + addBinary("1", "111"));
-		
-		System.out.println("0 --> " + 0 / 2 + ", " + 0 % 2);
-		System.out.println("1 --> " + 1 / 2 + ", " + 1 % 2);
-		System.out.println("2 --> " + 2 / 2 + ", " + 2 % 2);
+		System.out.println("100 --> " + addBinary2("11", "1"));
+		System.out.println("10101 --> " + addBinary2("1010", "1011"));
+		System.out.println("1000 --> " + addBinary2("1", "111"));
 	}
 	
 	public static String addBinary(String a, String b) {
@@ -47,5 +43,19 @@ public class Solution {
 		
 		return result.toString();
     }
+	
+	public static String addBinary2(String a, String b) {
+		StringBuilder result = new StringBuilder();
+		int m = a.length() - 1, n = b.length() - 1, carry = 0;
+		
+		while(m >= 0 || n >= 0) {
+			int p = m >= 0 ? Integer.valueOf(a.charAt(m--) - '0') : 0;
+			int q = n >= 0 ? Integer.valueOf(b.charAt(n--) - '0') : 0;
+			result = new StringBuilder(String.valueOf((p + q + carry) % 2)).append(result);
+			carry = (p + q + carry) / 2;
+		}
+		
+		return carry == 1 ? new StringBuilder("1").append(result).toString() : result.toString();
+	}
 
 }
