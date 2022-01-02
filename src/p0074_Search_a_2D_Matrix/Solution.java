@@ -23,7 +23,7 @@ public class Solution {
         	}
         }
 		
-		if(right / n >= matrix.length || right % n >= matrix[0].length) return false;
+		if(right / n >= m || right % n >= n) return false;
 		
 		return matrix[right / n][right % n] == target;
     }
