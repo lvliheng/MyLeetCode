@@ -13,23 +13,23 @@ public class Solution {
 	
 	public static List<List<Integer>> combine(int n, int k) {
         List<List<Integer>> result = new ArrayList<>();
-        List<Integer> item = new ArrayList<>();
+        List<Integer> current = new ArrayList<>();
         
-        helper(n, k, 1, item, result);
+        helper(n, k, 1, current, result);
         
         return result;
     }
 	
-	public static void helper(int n, int k, int level, List<Integer> item, List<List<Integer>> result) {
-		if(item.size() == k) {
-			result.add(new ArrayList<>(item));
+	private static void helper(int n, int k, int level, List<Integer> current, List<List<Integer>> result) {
+		if(current.size() == k) {
+			result.add(new ArrayList<>(current));
 			return;
 		}
 		
 		for(int i = level; i <= n; i++) {
-			item.add(i);
-			helper(n, k, i + 1, item, result);
-			item.remove(item.size() - 1);
+			current.add(i);
+			helper(n, k, i + 1, current, result);
+			current.remove(current.size() - 1);
 		}
 	}
 
