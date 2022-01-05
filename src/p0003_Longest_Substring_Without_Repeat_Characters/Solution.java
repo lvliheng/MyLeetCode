@@ -6,10 +6,10 @@ public class Solution {
 
 	public static void main(String[] args) {
 		
-		System.out.println("0: " + lengthOfLongestSubstring(""));
-		System.out.println("3: " + lengthOfLongestSubstring("abcabcbb"));
-		System.out.println("1: " + lengthOfLongestSubstring("bbbbb"));
-		System.out.println("3: " + lengthOfLongestSubstring("pwwkew"));
+		System.out.println("0 --> " + lengthOfLongestSubstring(""));
+		System.out.println("3 --> " + lengthOfLongestSubstring("abcabcbb"));
+		System.out.println("1 --> " + lengthOfLongestSubstring("bbbbb"));
+		System.out.println("3 --> " + lengthOfLongestSubstring("pwwkew"));
 
 	}
 	

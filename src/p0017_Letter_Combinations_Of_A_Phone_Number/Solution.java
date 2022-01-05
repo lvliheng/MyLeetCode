@@ -6,17 +6,10 @@ import java.util.List;
 public class Solution {
 
 	public static void main(String[] args) {
-		System.out.println("[ad, bd, cd, ae, be, ce, af, bf, cf]");
-		System.out.println(" || ");
-		System.out.println(letterCombinations("23"));
-		System.out.println();
 		
+		System.out.println("[ad, bd, cd, ae, be, ce, af, bf, cf] --> " + letterCombinations("23"));
 		System.out.println("letterCombinations: [] --> " + letterCombinations(""));
-		System.out.println();
-		
 		System.out.println("letterCombinations: [\"a\",\"b\",\"c\"] --> " + letterCombinations("2"));
-		System.out.println();
-		
 		System.out.println("[adg, bdg, cdg, aeg, beg, ceg, afg, bfg, cfg, adh, bdh, cdh, aeh, beh, ceh, afh, bfh, cfh, adi, bdi, cdi, aei, bei, cei, afi, bfi, cfi]");
 		System.out.println(" || ");
 		System.out.println(letterCombinations("234"));

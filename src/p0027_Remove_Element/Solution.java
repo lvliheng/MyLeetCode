@@ -4,9 +4,9 @@ public class Solution {
 
 	public static void main(String[] args) {
 		
-		System.out.println("2 ==> " + removeElement(new int[] {3,2,2,3}, 3));
-		System.out.println("5 ==> " + removeElement(new int[] {0,1,2,2,3,0,4,2}, 2));
-		System.out.println("0 ==> " + removeElement(new int[] {1}, 1));
+		System.out.println("2 --> " + removeElement(new int[] {3,2,2,3}, 3));
+		System.out.println("5 --> " + removeElement(new int[] {0,1,2,2,3,0,4,2}, 2));
+		System.out.println("0 --> " + removeElement(new int[] {1}, 1));
 		
 	}
 	

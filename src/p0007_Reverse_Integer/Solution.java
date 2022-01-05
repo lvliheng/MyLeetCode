@@ -4,7 +4,7 @@ public class Solution {
 
 	public static void main(String[] args) {
 		
-		System.out.println("reverseInt: " + reverseInt(1534236469));
+		System.out.println("0 --> " + reverseInt(1534236469));
 	}
 
 	public static int reverseInt(int x) {

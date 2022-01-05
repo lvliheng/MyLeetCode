@@ -6,8 +6,10 @@ public class Solution {
 
 	public static void main(String[] args) {
 		
-		//-1,0,0,0,0,3,3 //-1,0,0,0,0,3,3  //0,0,1,2,3,4,4,4
 		System.out.println("removeDuplicates: " + removeDuplicates(new int[] {1, 2, 3, 4}));
+		System.out.println("removeDuplicates: " + removeDuplicates(new int[] { -1, 0, 0, 0, 0, 3, 3 }));
+		System.out.println("removeDuplicates: " + removeDuplicates(new int[] { -1, 0, 0, 0, 0, 3, 3 }));
+		System.out.println("removeDuplicates: " + removeDuplicates(new int[] { 0, 0, 1, 2, 3, 4, 4, 4 }));
 	}
 	
 	public static int removeDuplicates(int[] nums) {
