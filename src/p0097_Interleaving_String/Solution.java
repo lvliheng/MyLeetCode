@@ -25,8 +25,8 @@ public class Solution {
         
         for(int i = 1; i <= n1; i++) {
         	for(int j = 1; j <= n2; j++) {
-        		dp[i][j] = (dp[i - 1][j] && (s1.charAt(i - 1) == s3.charAt(i - 1 + j)) 
-        				|| dp[i][j - 1] && (s2.charAt(j - 1) == s3.charAt(j - 1 + i)));
+        		dp[i][j] = (dp[i - 1][j] && (s1.charAt(i - 1) == s3.charAt(i - 1 + j)))
+        				|| (dp[i][j - 1] && (s2.charAt(j - 1) == s3.charAt(j - 1 + i)));
         	}
         }
 		
