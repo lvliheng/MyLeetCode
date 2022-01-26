@@ -11,6 +11,40 @@ public class Solution {
 		
 		List<TreeNode> results = generateTrees(3);
 		
+		printResult(results);
+	}
+
+	public static List<TreeNode> generateTrees(int n) {
+		if (n == 0) return null;
+
+		return helper(1, n);
+	}
+
+	private static List<TreeNode> helper(int start, int end) {
+		List<TreeNode> result = new ArrayList<>();
+		
+		if (start > end) {
+			result.add(null);
+			return result;
+		}
+		
+		for(int i = start; i <= end; i++) {
+			List<TreeNode> left = helper(start, i - 1), right = helper(i + 1, end);
+			
+			for(TreeNode leftItem : left) {
+				for(TreeNode rightItem : right) {
+					TreeNode node = new TreeNode(i);
+					node.left = leftItem;
+					node.right = rightItem;
+					result.add(node);
+				}
+			}
+		}
+		
+		return result;
+	}
+	
+	private static void printResult(List<TreeNode> results){
 		for(int i = 0; i < results.size(); i++) {
 			TreeNode item = results.get(i);
 			
@@ -44,36 +78,6 @@ public class Solution {
 			
 			System.out.println();
 		}
-	}
-
-	public static List<TreeNode> generateTrees(int n) {
-		if (n == 0) return null;
-
-		return helper(1, n);
-	}
-
-	private static List<TreeNode> helper(int start, int end) {
-		List<TreeNode> result = new ArrayList<>();
-		
-		if (start > end) {
-			result.add(null);
-			return result;
-		}
-		
-		for(int i = start; i <= end; i++) {
-			List<TreeNode> left = helper(start, i - 1), right = helper(i + 1, end);
-			
-			for(TreeNode leftItem : left) {
-				for(TreeNode rightItem : right) {
-					TreeNode node = new TreeNode(i);
-					node.left = leftItem;
-					node.right = rightItem;
-					result.add(node);
-				}
-			}
-		}
-		
-		return result;
 	}
 
 	public static class TreeNode {
