@@ -18,30 +18,30 @@ public class Solution {
         
         int n = words.length, len = words[0].length();
         
-		HashMap<String, Integer> wordCnt = new HashMap<>();
+		HashMap<String, Integer> wordCounts = new HashMap<>();
 		
 		for(String word : words) {
-			if(!wordCnt.containsKey(word)) {
-				wordCnt.put(word, 0);
+			if(!wordCounts.containsKey(word)) {
+				wordCounts.put(word, 0);
 			}
-			wordCnt.put(word, wordCnt.get(word) + 1);
+			wordCounts.put(word, wordCounts.get(word) + 1);
 		}
 		
 		for(int i = 0; i <= s.length() - n * len; i++) {
-			HashMap<String, Integer> strCnt = new HashMap<>();
+			HashMap<String, Integer> currentCounts = new HashMap<>();
 			
 			int j = 0;
 			for(j = 0; j < n; j++) {
 				String temp = s.substring(i + j * len, i + j * len + len);
 				
-				if(!wordCnt.containsKey(temp)) break;
+				if(!wordCounts.containsKey(temp)) break;
 				
-				if(!strCnt.containsKey(temp)) {
-					strCnt.put(temp, 0);
+				if(!currentCounts.containsKey(temp)) {
+					currentCounts.put(temp, 0);
 				}
-				strCnt.put(temp, strCnt.get(temp) + 1);
+				currentCounts.put(temp, currentCounts.get(temp) + 1);
 				
-				if(strCnt.get(temp) > wordCnt.get(temp)) break;
+				if(currentCounts.get(temp) > wordCounts.get(temp)) break;
 			}
 			
 			if(j == n) result.add(i);
@@ -49,5 +49,7 @@ public class Solution {
         
         return result;
     }
+	
+	
 
 }
