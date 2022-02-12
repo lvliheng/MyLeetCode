@@ -9,28 +9,28 @@ public class Solution {
 	}
 	
 	public static boolean isNumber(String s) {
-        boolean num = false, numAfterE = false, dot = false, exp = false;
+        boolean hasNum = false, hasNumAfterE = false, hasDot = false, hasE = false;
         int n = s.length();
         
         for(int i = 0; i < n; i++) {
         	if(s.charAt(i) == '+' || s.charAt(i) == '-') {
         		if(i > 0 && s.charAt(i - 1) != 'e') return false;
         	} else if(s.charAt(i) >= '0' && s.charAt(i) <= '9') {
-        		num = true;
-        		numAfterE = true;
+        		hasNum = true;
+        		hasNumAfterE = true;
         	} else if(s.charAt(i) == '.') {
-        		if(dot || exp) return false;
-        		dot = true;
+        		if(hasDot || hasE) return false;
+        		hasDot = true;
         	} else if(s.charAt(i) == 'e' || s.charAt(i) == 'E') {
-        		if(exp || !num) return false;
-        		exp = true;
-        		numAfterE = false;
+        		if(hasE || !hasNum) return false;
+        		hasE = true;
+        		hasNumAfterE = false;
         	} else {
         		return false;
         	}
         }
         
-        return num && numAfterE;
+        return hasNum && hasNumAfterE;
     }
 
 }
