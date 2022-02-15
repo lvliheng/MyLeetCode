@@ -52,14 +52,17 @@ public class Solution {
 		int[] letterCnt = new int[128];
 		int left = 0, cnt = 0, minLeft = -1, minLen = Integer.MAX_VALUE;
 		
-		for(char c : t.toCharArray()) letterCnt[c]++;
+		for(char c : t.toCharArray()) {
+			letterCnt[c]++;
+		}
 		for(int i = 0; i < s.length(); i++) {
 			if(--letterCnt[s.charAt(i)] >= 0) cnt++;
 			
 			while(cnt == t.length()) {
 				if(minLen > i - left + 1) {
+					System.out.println("minLeft: " + minLeft + ", left: " + left);
 					minLen = i - left + 1;
-					 minLeft = left;
+					minLeft = left;
 				}
 				
 				if(++letterCnt[s.charAt(left)] > 0) cnt--;
