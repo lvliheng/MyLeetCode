@@ -1,6 +1,5 @@
 package p0100_Same_Tree;
 
-import java.util.Queue;
 import java.util.Stack;
 
 public class Solution {
