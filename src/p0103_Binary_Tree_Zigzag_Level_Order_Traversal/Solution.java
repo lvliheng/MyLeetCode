@@ -1,4 +1,4 @@
-package p0102_Binary_Tree_Level_Order_Traversal;
+package p0103_Binary_Tree_Zigzag_Level_Order_Traversal;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -9,7 +9,7 @@ public class Solution {
 
 	public static void main(String[] args) {
 		
-		System.out.println("[[3],[9,20],[15,7]] --> ");
+		System.out.println("[[3],[20,9],[15,7]] --> ");
 		
 		TreeNode root = new TreeNode(3);
 		TreeNode left = new TreeNode(9);
@@ -23,7 +23,7 @@ public class Solution {
 		right.right = right1;
 		
 		
-		List<List<Integer>> result = levelOrder2(root);
+		List<List<Integer>> result = zigzagLevelOrder2(root);
 		
 		for(List<Integer> list : result) {
 			for(int item : list) {
@@ -33,50 +33,58 @@ public class Solution {
 		}
 	}
 	
-	public static List<List<Integer>> levelOrder(TreeNode root) {
-		return levelOrder(root, 0, new ArrayList<>());
+	public static List<List<Integer>> zigzagLevelOrder(TreeNode root) {
+        return zigzagLevelOrder(root, 0, new ArrayList<>());
     }
 	
-	private static List<List<Integer>> levelOrder(TreeNode node, int level, List<List<Integer>> result){
+	private static List<List<Integer>> zigzagLevelOrder(TreeNode node, int level, List<List<Integer>> result){
 		if(node == null) return result;
 		if(result.size() == level) result.add(new ArrayList<>());
 		
-		result.get(level).add(node.val);
+		if(level % 2 == 0) {
+			result.get(level).add(node.val);
+		} else {
+			result.get(level).add(0, node.val);
+		}
 		
-		if(node.left != null) result = levelOrder(node.left, level + 1, result);
-		if(node.right != null) result = levelOrder(node.right, level + 1, result);
+		if(node.left != null) result = zigzagLevelOrder(node.left, level + 1, result);
+		if(node.right != null) result = zigzagLevelOrder(node.right, level + 1, result);
 		
 		return result;
 	}
 	
-	public static List<List<Integer>> levelOrder2(TreeNode root) {
+	public static List<List<Integer>> zigzagLevelOrder2(TreeNode root) {
 		if(root == null) return new ArrayList<>();
 		
 		List<List<Integer>> result = new ArrayList<>();
-		
 		Queue<TreeNode> queue = new LinkedList<>();
 		queue.add(root);
+		boolean isLeftToRight = true;
 		
 		while(!queue.isEmpty()) {
+			int size = queue.size();
 			List<Integer> current = new ArrayList<>();
 			
-			for(int i = queue.size(); i > 0; i--) {
+			for(int i = 0; i < size; i++) {
 				TreeNode node = queue.poll();
-				current.add(node.val);
 				
-				if(node.left != null) {
-					queue.add(node.left);
+				if(isLeftToRight) {
+					current.add(node.val);
+				} else {
+					current.add(0, node.val);
 				}
-				if(node.right != null) {
-					queue.add(node.right);
-				}
+				
+				if(node.left != null) queue.add(node.left);
+				if(node.right != null) queue.add(node.right);
 			}
+			
 			result.add(current);
+			isLeftToRight = !isLeftToRight;
 		}
 		
 		return result;
-    }
-
+	}
+	
 	public static class TreeNode {
 		int val;
 		TreeNode left;
@@ -95,4 +103,5 @@ public class Solution {
 			this.right = right;
 		}
 	}
+
 }
