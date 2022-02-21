@@ -37,14 +37,14 @@ public class Solution {
 		return levelOrder(root, 0, new ArrayList<>());
     }
 	
-	private static List<List<Integer>> levelOrder(TreeNode node, int level, List<List<Integer>> result){
-		if(node == null) return result;
+	private static List<List<Integer>> levelOrder(TreeNode root, int level, List<List<Integer>> result){
+		if(root == null) return result;
 		if(result.size() == level) result.add(new ArrayList<>());
 		
-		result.get(level).add(node.val);
+		result.get(level).add(root.val);
 		
-		if(node.left != null) result = levelOrder(node.left, level + 1, result);
-		if(node.right != null) result = levelOrder(node.right, level + 1, result);
+		if(root.left != null) result = levelOrder(root.left, level + 1, result);
+		if(root.right != null) result = levelOrder(root.right, level + 1, result);
 		
 		return result;
 	}

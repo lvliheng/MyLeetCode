@@ -37,18 +37,18 @@ public class Solution {
         return zigzagLevelOrder(root, 0, new ArrayList<>());
     }
 	
-	private static List<List<Integer>> zigzagLevelOrder(TreeNode node, int level, List<List<Integer>> result){
-		if(node == null) return result;
+	private static List<List<Integer>> zigzagLevelOrder(TreeNode root, int level, List<List<Integer>> result){
+		if(root == null) return result;
 		if(result.size() == level) result.add(new ArrayList<>());
 		
 		if(level % 2 == 0) {
-			result.get(level).add(node.val);
+			result.get(level).add(root.val);
 		} else {
-			result.get(level).add(0, node.val);
+			result.get(level).add(0, root.val);
 		}
 		
-		if(node.left != null) result = zigzagLevelOrder(node.left, level + 1, result);
-		if(node.right != null) result = zigzagLevelOrder(node.right, level + 1, result);
+		if(root.left != null) result = zigzagLevelOrder(root.left, level + 1, result);
+		if(root.right != null) result = zigzagLevelOrder(root.right, level + 1, result);
 		
 		return result;
 	}
