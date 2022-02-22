@@ -46,38 +46,18 @@ public class Solution {
 	
 	private static void printResult(List<TreeNode> results){
 		for(int i = 0; i < results.size(); i++) {
-			TreeNode item = results.get(i);
-			
-			System.out.print(item.val + " ");
-			
-			while(item != null) {
-				if(item.left == null && item.right == null) break;
-				
-				if(item.left != null) {
-					System.out.print(item.left.val + " ");
-				} else {
-					if(item.left != null || item.right != null) {
-						System.out.print("null ");
-					}
-				}
-				
-				if(item.right != null) {
-					System.out.print(item.right.val + " ");
-				} else {
-					if(item.left.left != null || item.left.right != null) {
-						System.out.print("null ");
-					}
-				}
-				
-				if(item.left != null) {
-					item = item.left;
-				} else if(item.right != null) {
-					item = item.right;
-				}
-			}
+			printResult(results.get(i));
 			
 			System.out.println();
 		}
+	}
+	
+	private static void printResult(TreeNode result){
+		if (result != null) {
+            System.out.print(result.val + "  ");
+            printResult(result.left);
+            printResult(result.right);
+        }
 	}
 
 	public static class TreeNode {
