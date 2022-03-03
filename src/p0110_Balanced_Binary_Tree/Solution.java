@@ -1,4 +1,4 @@
-package p110_Balanced_Binary_Tree;
+package p0110_Balanced_Binary_Tree;
 
 public class Solution {
 
