@@ -11,8 +11,8 @@ public class Solution {
 	
 	public static void main(String[] args) {
 		
-		System.out.println("4 --> " + longestConsecutive3(new int[] {100,4,200,1,3,2}));
-		System.out.println("9 --> " + longestConsecutive3(new int[] {0,3,7,2,5,8,4,6,0,1}));
+		System.out.println("4 --> " + longestConsecutive4(new int[] {100,4,200,1,3,2}));
+		System.out.println("9 --> " + longestConsecutive4(new int[] {0,3,7,2,5,8,4,6,0,1}));
 	}
 	
 	public static int longestConsecutive(int[] nums) {
@@ -87,6 +87,29 @@ public class Solution {
 				}
 				
 				result = Math.max(result, count);
+			}
+		}
+		
+		return result;
+	}
+	
+	public static int longestConsecutive4(int[] nums) {
+		Set<Integer>set = new HashSet<>();
+		for (int num : nums) {
+			set.add(num);
+		}
+		
+		int result =  0;
+		
+		for(int num : nums) {
+			if(set.remove(num)) {
+				int pre = num - 1;
+				int next = num + 1;
+				
+				while(set.remove(pre)) pre--;
+				while(set.remove(next)) next++;
+				
+				result = Math.max(result, next - pre - 1);
 			}
 		}
 		
