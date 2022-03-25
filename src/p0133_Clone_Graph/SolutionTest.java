@@ -1,13 +1,14 @@
 package p0133_Clone_Graph;
 
 import org.junit.Assert;
+import org.junit.Test;
 
 import p0133_Clone_Graph.Solution.Node;
 
-class Test {
+public class SolutionTest {
 
-	@org.junit.jupiter.api.Test
-	void test() {
+	@Test
+	public void test() {
 		Node node1 = new Node(1);
 		Node node2 = new Node(2);
 		Node node3 = new Node(3);
