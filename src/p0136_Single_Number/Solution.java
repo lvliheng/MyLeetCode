@@ -20,9 +20,7 @@ public class Solution {
 		int result = 0;
 		
 		for(int num : nums) {
-			System.out.print(result + " ^= " + num);
 			result ^= num;
-			System.out.println(" = " + result);
 		}
 		
 		return result;
