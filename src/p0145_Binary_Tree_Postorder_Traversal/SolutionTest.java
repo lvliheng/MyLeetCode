@@ -1,4 +1,4 @@
-package p0144_Binary_Tree_Preorder_Traversal;
+package p0145_Binary_Tree_Postorder_Traversal;
 
 import static org.junit.Assert.*;
 
@@ -7,18 +7,19 @@ import java.util.List;
 
 import org.junit.Test;
 
-import p0144_Binary_Tree_Preorder_Traversal.Solution.TreeNode;
+import p0145_Binary_Tree_Postorder_Traversal.Solution.TreeNode;
+
 
 public class SolutionTest {
 
 	@Test
 	public void test() {
-		assertEquals(getResult(), Solution.preorderTraversal(getRoot()));
+		assertEquals(getResult(), Solution.postorderTraversal(getRoot()));
 	}
 	
 	@Test
 	public void test2() {
-		assertEquals(getResult(), Solution.preorderTraversal2(getRoot()));
+		assertEquals(getResult(), Solution.postorderTraversal2(getRoot()));
 	}
 	
 	private TreeNode getRoot() {
@@ -35,9 +36,9 @@ public class SolutionTest {
 	
 	private List<Integer> getResult() {
 		List<Integer> result = new ArrayList<>();
-		result.add(1);
-		result.add(2);
 		result.add(3);
+		result.add(2);
+		result.add(1);
 		
 		return result;
 	}
